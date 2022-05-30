@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<instituto xmlns="https://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.w3schools.com esquema.xsd">
+
+    <niveles nombreNiveles="Bachillerato">
+        <grupos nombreGrupos="2ºA">
+            <alumnos>
+                
+            </alumnos>
+        </grupos>
+    </niveles>
+</instituto>

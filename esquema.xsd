@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+<!-- definimos elementos simples -->
+<xs:element name="nombre" type="xs:string"/>
+
+<xs:element name="nombre_asignatura" type="xs:string"/>
+<xs:element name="evaluacion" type="xs:string"/>
+<xs:element name="nota" type="xs:integer"/>
+
+<!-- de notas solo se puede elegir entre estos 4 valores -->
+<xs:element name="notas">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="suspenso"/>
+        <xs:enumeration value="suficiente"/>
+        <xs:enumeration value="notable"/>
+        <xs:enumeration value="sobresaliente"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+
+<!-- definimos elementos complex -->
+<xs:element name="instituto">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- los niveles pueden no existir -->
+      <xs:element ref="niveles" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="niveles">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- los grupos pueden no existir -->
+      <xs:element ref="grupos" minOccurs="0"/>
+    </xs:sequence>
+    <!-- el nombre del nivel es obligatorio -->
+    <xs:attribute name="nombreNiveles" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="grupos">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="alumnos" minOccurs="1"/>
+    </xs:sequence>
+    <!-- el nombre del grupo es obligatorio -->
+    <xs:attribute name="nombreGrupos" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+
+<xs:element name="alumnos">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="nombre"/>
+      <xs:element ref="telefono"/>
+      <xs:element ref="asignatura"/>
+    
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="asignatura">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="nombre_asignatura"/>
+      <xs:element ref="evaluacion"/>
+      <xs:element ref="nota"/>
+      
+      
+      <!-- pueden haber varios pares de Evaluación/Nota -->
+      <xs:element ref="evaluacion" maxOccurs="9" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+    <!-- telefono con máximo 9 digitos -->
+<xs:element name="telefono">
+    <xs:simpleType>
+        <xs:restriction base="xs:integer">
+            <xs:totalDigits value="9"></xs:totalDigits>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+</xs:schema>

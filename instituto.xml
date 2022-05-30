@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<instituto xmlns="https://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.w3schools.com esquema.xsd">
+
+    <niveles nombreNiveles="Bachillerato">
+        <grupos nombreGrupos="2ºA">
+            <alumnos>
+                <nombre>Marcos</nombre>
+                <telefono>654444555</telefono>
+                <asignatura>
+                    <nombre_asignatura>matematicas</nombre_asignatura>
+                    <evaluacion>primera</evaluacion>
+                    <nota>5</nota>
+                </asignatura>
+            </alumnos>
+        </grupos>
+    </niveles>
+</instituto>
